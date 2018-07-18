@@ -1,0 +1,25 @@
+# ASSIGNMENT 4 : Task 2.3:
+
+Find the sum of the values in s for every Wednesday
+
+## NOTE: Please refer README.md file to get instruction to run the program
+
+### Code: 
+
+		import numpy as np
+		import pandas as pd	
+
+		#business days of 2015
+		b_dates = pd.bdate_range('2015-01-01', '2015-12-31')
+
+		#Use business day of 2015 as index to a series of random numbers
+		b_dates_index = pd.Series(np.random.randn(len(b_dates)), index=b_dates)
+		#b_dates_index
+		df = pd.DataFrame({'numbers': np.random.randn(len(b_dates)), 'dates': b_dates})
+		total_wed = df[df['dates'].dt.weekday_name == 'Wednesday'].sum()
+
+		print("sum of values in sequences for every Wednesday:\n")
+		print(total_wed)	
+
+### Output Reference: 
+	screenshot_ass4_task2.3.png

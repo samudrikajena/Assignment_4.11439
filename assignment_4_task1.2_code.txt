@@ -1,0 +1,29 @@
+# ASSIGNMENT 4 : Task 1.2:
+
+Write a function to find moving average in an array over a window ( Task 1.1):
+Test it over [3, 5, 7, 2, 8, 10, 11, 65, 72, 81, 99, 100, 150] and window of 3.
+
+
+## NOTE: Please refer README.md file to get instruction to run the program
+
+### Code: 
+
+		import numpy as np
+		import pandas as pd
+
+		def cal_moving_avg(k,numList):  
+			numArr=np.array(numList)
+			list2=[]
+			for j in range(len(numArr)-k+1):
+				list1=[]
+				for i in range(j,j+k):
+					list1.append(numArr[i])
+				mAvg=sum(list1)/k       
+				list2.append(mAvg)
+			return(list2)
+
+		numList=[3, 5, 7, 2, 8, 10, 11, 65, 72, 81, 99, 100, 150]
+		print(cal_moving_avg(3,numList))	
+
+### Output Reference: 
+	screenshot_ass4_task1.2.png

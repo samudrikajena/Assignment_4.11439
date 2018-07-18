@@ -1,0 +1,45 @@
+# ASSIGNMENT 4 : Task 2.1:
+
+How-to-count-distance-to-the-previous-zero
+
+Hint:
+For each value, count the difference back to the previous zero (or the start of the Series,whichever is closer)
+create a new column 'Y'
+Consider a DataFrame df where there is an integer column 'X'
+import pandas as pd
+df = pd.DataFrame({'X': [7, 2, 0, 3, 4, 2, 5, 0, 3, 4]})<\h1>
+
+
+## NOTE: Please refer README.md file to get instruction to run the program
+
+### Code: 
+
+		#import necessary libraries
+		import numpy as np
+		import pandas as pd
+		import matplotlib.pyplot as plt
+		import os
+		import math
+		%matplotlib inline
+
+		df=pd.DataFrame({'X':[7,2,0,3,4,2,5,0,3,4]}) #create dataframe
+		#df.index.values
+
+		diff=[]
+		tmp=0
+		for index,i in df.iterrows():    
+			if i['X']==0:
+				tmp=index
+				diff.append(i['X'])
+			else:
+				if index>=tmp:
+					diff.append(index-tmp)
+				else:
+					diff.append(index)
+		print(diff)  #print difference
+		df['out']=pd.Series(diff,dtype=int)
+		df # view the output		
+	
+
+### Output Reference: 
+	screenshot_ass4_task2.1.png

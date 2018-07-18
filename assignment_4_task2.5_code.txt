@@ -1,0 +1,27 @@
+# ASSIGNMENT 4 : Task 2.5:
+
+Create a DatetimeIndex that contains each business day of 2015 and use it to index a Series of 
+random numbers.
+
+For each group of four consecutive calendar months in s, find the date on which the highest
+value occurred.
+
+## NOTE: Please refer README.md file to get instruction to run the program
+
+### Code: 
+
+		import numpy as np
+		import pandas as pd	
+
+		#business days of 2015
+		b_dates = pd.bdate_range('2015-01-01', '2015-12-31')
+
+		#Use business day of 2015 as index to a series of random numbers
+		b_dates_index = pd.Series(np.random.randn(len(b_dates)), index=b_dates)
+		
+		b_dates_index['2015-01-01':'2015-04-30'].idxmax() #for fisrt group of 4 months
+		b_dates_index['2015-05-01':'2015-08-31'].idxmax() #for second group of 4 months
+		b_dates_index['2015-09-01':'2015-12-31'].idxmax() #for 3rd group of 4 months
+
+### Output Reference: 
+	screenshot_ass4_task2.5.png

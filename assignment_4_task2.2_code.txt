@@ -1,0 +1,24 @@
+# ASSIGNMENT 4 : Task 2.2:
+
+Create a DatetimeIndex that contains each business day of 2015 and use it to index a Series of 
+random numbers.
+
+## NOTE: Please refer README.md file to get instruction to run the program
+
+### Code: 
+		
+		import numpy as np
+		import pandas as pd
+
+		#business days of 2015
+		b_dates = pd.bdate_range('2015-01-01', '2015-12-31')
+
+		#Use business day of 2015 as index to a series of random numbers
+		b_dates_index = pd.Series(np.random.randn(len(b_dates)), index=b_dates)
+
+		print('Series of random numbers with date as index:\n')
+		print(b_dates_index)
+	
+
+### Output Reference: 
+	screenshot_ass4_task2.2.png
